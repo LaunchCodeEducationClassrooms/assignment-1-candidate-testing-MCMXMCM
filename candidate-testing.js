@@ -1,10 +1,6 @@
 const input = require('readline-sync');
 
-
-
-// TODO 1.1a: Define candidateName // 
 let candidateName;
-// TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question;
 let correctAnswer;
 let candidateAnswer;
@@ -46,6 +42,7 @@ function gradeQuiz(candidateAnswers) {
     if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()){
      grade += 1;
      } 
+     
     }
   return grade
 }
@@ -60,9 +57,13 @@ function passFail() {
 }
 
 function presentAllQnA() {
-  console.log(`Thank you. Please see your results below:
+  console.log(`
+  
+  Thank you. Please see your results below:
+
   ....................................................
-  ....................................................`);
+  ....................................................
+  `);
   for(let i = 0; i < candidateAnswers.length; i++) {
     console.log(`RESULTS FOR QUESTION ${i+1}: 
     Your Answer: ${candidateAnswers[i]} 
@@ -72,14 +73,14 @@ function presentAllQnA() {
 
 function runProgram() {
   askForName();
-    console.log(`Hi ${candidateName}. I'm going to ask you a series of questions. Please answer to the best of your ability.`)
+  console.log(`Hi ${candidateName}. I'm going to ask you a series of questions. Please answer to the best of your ability.`)
   askQuestion();
   gradeQuiz(this.candidateAnswers);
   passFail();
   presentAllQnA();
   console.log(`
-  >>> Overall Grade: ${(grade / 5) * 100}% (${grade} of 5 responses correct <<<)
-  >>> Status: ${status}` );
+  >>> Overall Grade: ${(grade / 5) * 100}% (${grade} of 5 responses correct)<<<
+  >>> Status: ${status} <<<` );
 }
 
 // Don't write any code below this line //
