@@ -66,7 +66,7 @@ function presentAllQnA() {
   for(let i = 0; i < candidateAnswers.length; i++) {
     console.log(`RESULTS FOR QUESTION ${i+1}: 
     Your Answer: ${candidateAnswers[i]} 
-    Corect Answer: ${correctAnswers[i]}.`);
+    Correct Answer: ${correctAnswers[i]}.`);
   }
 }
 
