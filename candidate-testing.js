@@ -1,6 +1,6 @@
 const input = require('readline-sync');
 
-// TODO 2: modify your quiz app to ask 5 questions //
+
 
 // TODO 1.1a: Define candidateName // 
 let candidateName;
@@ -38,10 +38,6 @@ function askForName() {
 function askQuestion() {
   for(let i = 0; i < questions.length; i++) {
     candidateAnswers.push(input.question(questions[i]));
-    
-    console.log(`RESULTS FOR QUESTION ${i+1}: 
-    Your Answer: ${candidateAnswers[i]} 
-    Corect Answer: ${correctAnswers[i]}.`);
   }
 }
 
@@ -63,12 +59,24 @@ function passFail() {
   return status;
 }
 
+function presentAllQnA() {
+  console.log(`Thank you. Please see your results below:
+  ....................................................
+  ....................................................`);
+  for(let i = 0; i < candidateAnswers.length; i++) {
+    console.log(`RESULTS FOR QUESTION ${i+1}: 
+    Your Answer: ${candidateAnswers[i]} 
+    Corect Answer: ${correctAnswers[i]}.`);
+  }
+}
+
 function runProgram() {
   askForName();
     console.log(`Hi ${candidateName}. I'm going to ask you a series of questions. Please answer to the best of your ability.`)
   askQuestion();
   gradeQuiz(this.candidateAnswers);
   passFail();
+  presentAllQnA();
   console.log(`
   >>> Overall Grade: ${(grade / 5) * 100}% (${grade} of 5 responses correct <<<)
   >>> Status: ${status}` );
